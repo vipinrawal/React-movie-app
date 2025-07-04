@@ -1,4 +1,3 @@
-import notfound from '/notfound.gif'
 
 const NotFound = () => {
   return (
