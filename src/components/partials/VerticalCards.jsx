@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Skeleton from './Skeleton'
 
 const VerticalCards = ({data, title}) => {
     return (
@@ -34,6 +35,10 @@ const VerticalCards = ({data, title}) => {
                     <h1 className='absolute md:hidden bottom-0 bg-[rgba(0,0,0,.8)] w-full text-white p-2'>{d.name || d.original_title}</h1>
                 </Link>
             ))}
+            <Skeleton/>
+            <Skeleton/>
+            <Skeleton/>
+            <Skeleton/>
         </div>
     )
 }
