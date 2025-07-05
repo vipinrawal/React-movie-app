@@ -21,21 +21,25 @@ const Topnav = () => {
 
   return (
     <div className='w-full h-[7vh] flex justify-center relative items-center'>
-        <i className="text-zinc-400 text-xl ri-search-line"></i>
+      <div className="h-[80%] w-[90vw] md:w-[40vw] bg-[rgba(0,0,0,.5)] rounded-xl flex items-center">
+        <i className="w-[5%] text-zinc-400 text-xl ri-search-line mx-2"></i>
+        <hr className="h-[90%] border-[1px] border-zinc-500"/>
         <input
         onChange={(e) => setquery(e.target.value)}
         value={query}
-        className="w-[50%] text-zinc-200 mx-8 outline-none border-none p-2" 
+        className="w-[90%] text-zinc-200 text-xm outline-none border-none p-2" 
         type="text" 
         placeholder="Search Anything"
         />
-
+        <div className="w-[10%] flex items-center justify-center h-full">
         {query.length > 0 && (
           <i 
           onClick={() => setquery("")}
           className="text-zinc-400 text-2xl hover:text-[#C1121F] ri-close-line"
           ></i>
         )}
+        </div>
+      </div>  
 
         <div className="z-[100] absolute w-screen md:w-[50vw] max-h-[50vh]   bg-zinc-200 top-[100%] overflow-auto rounded">
           {searches.map((s, i)=>(
