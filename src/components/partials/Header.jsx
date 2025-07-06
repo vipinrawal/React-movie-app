@@ -4,7 +4,7 @@ import Swiper from "swiper"
 import 'swiper/css';
 
 const Header = ({data}) => {
-  const swiper = new Swiper('.swiper',)
+  const swiper = new Swiper('.swiper')
   return (
     <div className='swiper h-[60vh] w-full'>
     <div className='swiper-wrapper h-[60vh] w-full'>
