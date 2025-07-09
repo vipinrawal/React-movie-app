@@ -1,15 +1,31 @@
 import React from 'react'
 import { Link } from "react-router-dom"
-import Swiper from "swiper"
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 const Header = ({data}) => {
-  const swiper = new Swiper('.swiper')
   return (
-    <div className='swiper h-[60vh] w-full'>
-    <div className='swiper-wrapper h-[60vh] w-full'>
+    <div className='flex flex-col h-[60vh] w-full'>
+    <Swiper
+      direction={'vertical'}
+      spaceBetween={30}
+      centeredSlides={true}
+      autoplay={{
+        delay: 7000,
+        disableOnInteraction: false,
+      }}
+      pagination={{
+        // type: "fraction",
+        clickable: true,
+      }}
+      modules={[Autoplay, Pagination]}
+      className="mySwiper text-white"
+      >
     {data.map((d,i)=>(
-    <div key={i} className='swiper-slide'>
+    <SwiperSlide key={i}>
     <div style={{
       background:`linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.5),rgba(0,0,0,.8)),url(https://image.tmdb.org/t/p/original/${d.backdrop_path})`,
       backgroundPosition:'top',
@@ -28,9 +44,9 @@ const Header = ({data}) => {
         <i className="ri-play-large-line"></i> Watch Trailer
       </Link>
     </div>
-    </div>
+    </SwiperSlide>
     ))}
-    </div>
+    </Swiper>
     </div>
   )
 }
