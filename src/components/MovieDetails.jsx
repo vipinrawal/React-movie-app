@@ -18,6 +18,7 @@ const MovieDetails = () => {
       dispatch(removemovie());
     };
   }, [id]);
+  console.log(info)
 
   return info ? (
     <div className='overflow-hidden overflow-y-auto'>
@@ -38,7 +39,7 @@ const MovieDetails = () => {
 
 
         <img className='h-[45vh] mx-10 my-5 rounded' src={`https://image.tmdb.org/t/p/original/${info.detail.poster_path}`} alt="" />
-        <h1 className='text-white text-4xl mx-10 my-3 font-bold'>{info.detail.title || info.detail.name}</h1>
+        <h1 className='text-white text-4xl mx-10 my-3 font-bold'>{info.detail.title || info.detail.name || info.detail.original_title}</h1>
         <h1 className='text-white text-xl mx-10 my-3'>{info.detail.tagline}</h1>
         <p className='text-white text-xs mx-10 w-[80%] md:w-[50%]'>{info.detail.overview}</p>
 
@@ -47,14 +48,14 @@ const MovieDetails = () => {
             <i className="text-amber-400 ri-star-fill"></i> {info.detail.vote_average > 0 ? (info.detail.vote_average).toFixed(1) : ((info.detail.popularity)/10).toFixed(1) } / 10
           </h1>
           <h1>
-            {info.detail.spoken_languages.length == 1 ? info.detail.spoken_languages[0].english_name : (info.detail.spoken_languages.find((m)=>m.name === "English").name)}/ 
-            <i className="ri-alarm-fill"></i> {info.detail.runtime} MIN / 
+            {info.detail.spoken_languages.length == 1 ? info.detail.spoken_languages[0].english_name : (info.detail.spoken_languages.find((m)=>m.name === "English").name)} <span className='text-[#C1121F]'>/ </span>
+            <i className="ri-alarm-fill"></i> {info.detail.runtime} MIN <span className='text-[#C1121F]'>/ </span> 
             <i className="ri-calendar-event-fill"></i> {info.detail.release_date.split("-")[0]}
           </h1>
         </div>
 
         <div className='flex flex-wrap text-sm mx-10 mb-5 text-white'>
-          GENRES : {info.detail.genres.map((g,i)=> <p key={i}> | {g.name}</p> )}
+          GENRES : {info.detail.genres.map((g,i)=> <p key={i}> <span className='text-[#C1121F]'>|</span> {g.name} </p> )}
         </div>
 
         <Link to={`${pathname}/trailer`} className='mx-10 hover:bg-[#780000] bg-[#C1121F] text-sm px-3 py-2 rounded text-white'>
@@ -82,7 +83,17 @@ const MovieDetails = () => {
 
       <hr className='border-zinc-500 mt-2' />
       <h1 className='m-3 text-zinc-400 text-xl font-black'>Recommended</h1>
-      <HorizontalCards data={info.recommendations.length > 0 ? info.recommendations : info.similar} />
+        <div className='w-full flex flex-wrap'>
+        {info.recommendations.map((r,i)=>
+          <Link key={i} to={`/${r.media_type}/details/${r.id}`} className='h-[27vh] md:w-[32vw] w-full rounded flex p-2 m-1 border-1 border-zinc-500'>
+            <img className='h-full rounded' src={`https://image.tmdb.org/t/p/original/${r.poster_path}`} alt="" />
+            <div className='p-2'>
+              <h1 className='font-semibold text-white mb-2'>{r.title}</h1>
+              <p className='text-sm text-zinc-400'>{r.overview.slice(0,100)}...<span className='text-blue-300'>more</span> </p>
+            </div>
+          </Link>
+        )}
+        </div>
       <Outlet/>
     </div>
   ) : (
