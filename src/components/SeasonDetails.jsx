@@ -74,8 +74,11 @@ const SeasonDetails = () => {
 
             </div>
 
-            <hr className='border-zinc-500 mt-2' />
-            <h1 className='m-3 text-zinc-400 text-xl font-black'>Episodes</h1>
+            <div className='flex w-full items-center p-3'>
+                <h1 className='text-zinc-400 text-xl font-black'>Episodes</h1>
+                <hr className='border-zinc-500 m-2 w-full' />
+            </div>
+
             <div className="mx-3 text-zinc-400 w-100% h-[50vh] overflow-x-hidden overflow-y-auto shadow-xl rounded border-2 border-zinc-700 px-3">
                 {seasondetail.detail.episodes.map((e, i) =>
                     <Link to={`${pathname}/episode/${e.episode_number}`} key={i} className="flex items-center hover:text-white p-5 rounded hover:bg-[#19191d]  duration-300 cursor-pointer">
@@ -90,8 +93,10 @@ const SeasonDetails = () => {
             </div>
 
 
-            <hr className='border-zinc-500 mt-2' />
-            <h1 className='m-3 text-zinc-400 text-xl font-black'>Cast</h1>
+            <div className='flex w-full items-center p-3'>
+                <h1 className='text-zinc-400 text-xl font-black'>Cast</h1>
+                <hr className='border-zinc-500 m-2 w-full' />
+            </div>
             <div className='w-full gap-2 px-5 flex overflow-hidden overflow-x-auto mx-3'>
                 {seasondetail.credits.map((c, i) =>
                     <Link key={i} to={`/people/details/${c.id}`} className='h-full flex flex-col items-center shrink-0 text-white'>
@@ -101,14 +106,18 @@ const SeasonDetails = () => {
                 )}
             </div>
 
-            <hr className='border-zinc-500 mt-2' />
-            <h1 className='m-3 text-zinc-400 text-xl font-black'>Images</h1>
+            <div className='flex w-full items-center p-3'>
+                <h1 className='text-zinc-400 text-xl font-black'>Images</h1>
+                <hr className='border-zinc-500 m-2 w-full' />
+            </div>
             <div className='bg-[#1F1E24] w-full scroll-smooth flex overflow-hidden overflow-x-auto'>
                 {seasondetail.images.map((b, i) => <img className='h-[20vh] md:h-[40vh] rounded my-4 mx-2' key={i} src={`https://image.tmdb.org/t/p/original/${b.still_path}`} alt="" />)}
             </div>
 
-            <hr className='border-zinc-500 mt-2' />
-            <h1 className='m-3 text-zinc-400 text-xl font-black'>All Seasons</h1>
+            <div className='flex w-full items-center p-3'>
+                <h1 className='text-zinc-400 text-xl font-black text-nowrap'>All seasons</h1>
+                <hr className='border-zinc-500 m-2 w-full' />
+            </div>
             <div className='w-full h-[35vh] md:h-[45vh] p-3 mb-10'>
                 <div className='flex w-full h-full gap-3 overflow-x-auto pb-2'>
                     {info.detail.seasons.map((d, i) => (
@@ -126,8 +135,10 @@ const SeasonDetails = () => {
                 </div>
             </div>
 
-            <hr className='border-zinc-500 mt-2' />
-            <h1 className='m-3 text-zinc-400 text-xl font-black'>Recommended</h1>
+            <div className='flex w-full items-center p-3'>
+                <h1 className='text-zinc-400 text-xl font-black'>Recommended</h1>
+                <hr className='border-zinc-500 m-2 w-full' />
+            </div>
             <div className='w-full flex flex-wrap'>
                 {info.recommendations.map((r, i) =>
                     <Link key={i} to={`/${r.media_type}/details/${r.id}`} className='h-[27vh] md:w-[32vw] w-full rounded flex p-2 m-1 border-1 border-zinc-500'>

@@ -12,6 +12,7 @@ export const asyncloadtv = (id, seasonnumber ) => async (dispatch, getstate) => 
         const watchproviders = await axios.get(`/tv/${id}/watch/providers`);
         const images = await axios.get(`/tv/${id}/images`);
         const credits = await axios.get(`/tv/${id}/credits`);
+        const reviews = await axios.get(`/tv/${id}/reviews`);
 
         let theultimatedetails = {
             detail: detail.data,
@@ -21,7 +22,8 @@ export const asyncloadtv = (id, seasonnumber ) => async (dispatch, getstate) => 
             videos: videos.data.results.find((m)=>m.type === "Trailer"),
             watchproviders: watchproviders.data.results.IN,
             images: images.data.backdrops.slice(0,10),
-            credits: credits.data.cast.slice(0,10)
+            credits: credits.data.cast.slice(0,10),
+            reviews: reviews.data.results
         };
 
         dispatch(loadtv(theultimatedetails));

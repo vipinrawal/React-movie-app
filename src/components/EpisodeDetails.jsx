@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
-import { asyncloadseason, removeseason } from "../store/actions/seasonActions";
-import { asyncloadtv, removetv } from "../store/actions/tvActions";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Loader from "./partials/Loader";
-import HorizontalCards from "./partials/HorizontalCards";
-import noimage from '/no-image.png'
 import axios from "../utils/axios";
 
 

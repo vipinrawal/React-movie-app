@@ -12,41 +12,50 @@ import Trailer from './components/partials/Trailer'
 import NotFound from './components/NotFound'
 import SeasonDetails from './components/SeasonDetails'
 import EpisodeDetails from './components/EpisodeDetails'
+import ReviewDetails from './components/ReviewDetails'
 
 const App = () => {
   return (
     <div className='bg-[#1F1E24] flex w-screen h-screen'>
       <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/trending" element={<Trending/>} />
-        <Route path="/popular" element={<Popular/>} />
-        <Route path="/movies" element={<Movies/>} />
-        <Route path="/movie/details/:id" element={<MovieDetails/>} >
+        <Route path="/" element={<Home />} />
+        <Route path="/trending" element={<Trending />} />
+        <Route path="/popular" element={<Popular />} />
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/movie/details/:id" element={<MovieDetails />} >
           <Route
-              path="/movie/details/:id/trailer"
-              element={<Trailer />}
+            path="/movie/details/:id/trailer"
+            element={<Trailer />}
+          />
+          <Route
+            path="/movie/details/:id/review/:reviewid"
+            element={<ReviewDetails />}
           />
         </Route>
-        <Route path="/tv" element={<TvShows/>} />
-        <Route path="/tv/details/:id" element={<TvDetails/>} >
+        <Route path="/tv" element={<TvShows />} />
+        <Route path="/tv/details/:id" element={<TvDetails />} >
           <Route
-              path="/tv/details/:id/trailer"
-              element={<Trailer />}
+            path="/tv/details/:id/review/:reviewid"
+            element={<ReviewDetails />}
+          />
+          <Route
+            path="/tv/details/:id/trailer"
+            element={<Trailer />}
           />
         </Route>
         <Route path="/tv/details/:id/season/:seasonnumber" element={<SeasonDetails />}>
           <Route
             path="/tv/details/:id/season/:seasonnumber/episode/:episodenumber"
-            element={<EpisodeDetails/>}
+            element={<EpisodeDetails />}
           />
           <Route
-              path="/tv/details/:id/season/:seasonnumber/trailer"
-              element={<Trailer />}
+            path="/tv/details/:id/season/:seasonnumber/trailer"
+            element={<Trailer />}
           />
         </Route>
-        <Route path="/people" element={<Peoples/>} />
-        <Route path="/people/details/:id" element={<PersonDetails/>} />
-        <Route path="*" element={<NotFound/>} />
+        <Route path="/people" element={<Peoples />} />
+        <Route path="/people/details/:id" element={<PersonDetails />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   )
