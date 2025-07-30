@@ -24,12 +24,7 @@ const EpisodeDetails = () => {
 
     console.log(reviewdetail)
     return (
-        <div className="bg-[rgba(0,0,0,.7)] absolute z-[100] top-0 left-0 w-screen h-screen flex items-center justify-center">
-            <Link
-                onClick={() => navigate(-1)}
-                className="absolute hover:text-[#CA1823] ri-close-fill text-3xl text-white right-[5%] top-[5%]"
-            ></Link>
-
+        <div onClick={() => navigate(-1)} className="bg-[rgba(0,0,0,.7)] absolute z-[100] top-0 left-0 w-screen h-screen flex items-center justify-center">
             <div className="h-[60%] w-[90%] md:w-[60%]  bg-black rounded-xl">
                 {reviewdetail ? (
                     <div className="p-3 h-full w-full text-zinc-400">
