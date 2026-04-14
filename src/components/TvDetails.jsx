@@ -20,7 +20,6 @@ const tvDetails = () => {
             dispatch(removetv());
         };
     }, [id]);
-    console.log(info)
 
     return info ? (
         <div className='overflow-hidden overflow-y-auto'>

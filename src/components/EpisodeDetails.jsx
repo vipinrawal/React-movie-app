@@ -32,29 +32,34 @@ const EpisodeDetails = () => {
             ></Link>
 
             <div className="h-[60%] md:h-[80%] w-[90%] bg-[#1F1E24] overflow-y-auto overflow-hidden rounded">
-            {episodedetail && episodeimages ?( 
-                <div className="py-3">
-                <img className='h-[20vh] mx-5 my-5 rounded' src={`https://image.tmdb.org/t/p/original/${episodedetail.still_path}`} alt="" />
-                <h1 className='text-white text-xl mx-5 my-3 font-bold'>{episodedetail.name}</h1>
-                <h1 className='text-white text-xl mx-5 my-3'>Episode-{episodedetail.episode_number}</h1>
-                <p className='text-white text-xs mx-5 w-[80%]'>{episodedetail.overview}</p>
-                <p className="text-white text-sm mx-5 mt-5">
-                    <i className="ri-alarm-fill"></i>duration- {episodedetail.runtime} Minutes
-                </p>
-                <p className="text-white text-sm mx-5">
-                    <i className="ri-calendar-event-fill"></i>Air date- {episodedetail.air_date}
-                </p>
-                <div>
-                    <hr className='border-zinc-500 mt-2' />
-                    <h1 className='m-2 text-zinc-400 text-xl font-black'>Images</h1>
-                    <div className='bg-[#1F1E24] w-full scroll-smooth flex overflow-hidden overflow-x-auto'>
-                        {episodeimages.stills.map((b, i) => <img className='h-[20vh] md:h-[40vh] rounded my-4 mx-2' key={i} src={`https://image.tmdb.org/t/p/original/${b.file_path}`} alt="" />)}
+                {episodedetail && episodeimages ? (
+                    <div className="py-3">
+                        <img className='h-[20vh] mx-5 my-5 rounded' src={`https://image.tmdb.org/t/p/original/${episodedetail.still_path}`} alt="" />
+                        <h1 className='text-white text-xl mx-5 my-3 font-bold'>{episodedetail.name}</h1>
+                        <h1 className='text-white text-xl mx-5 my-3'>Episode-{episodedetail.episode_number}</h1>
+                        <p className='text-white text-xs mx-5 w-[80%]'>{episodedetail.overview}</p>
+                        <div className="flex py-1.5">
+                        <Link to={`https://vidvault.ru/tv/${id}/${seasonnumber}/${episodenumber}`} className='mx-5 hover:bg-[#780000] bg-[#C1121F] text-sm px-3 py-2 rounded text-white'>
+                            <i className="ri-download-line"></i> Download Now
+                        </Link>
+                        </div>
+                        <p className="text-white text-sm mx-5 ">
+                            <i className="ri-alarm-fill"></i>duration- {episodedetail.runtime} Minutes
+                        </p>
+                        <p className="text-white text-sm mx-5">
+                            <i className="ri-calendar-event-fill"></i>Air date- {episodedetail.air_date}
+                        </p>
+                        <div>
+                            <hr className='border-zinc-500 mt-2' />
+                            <h1 className='m-2 text-zinc-400 text-xl font-black'>Images</h1>
+                            <div className='bg-[#1F1E24] w-full scroll-smooth flex overflow-hidden overflow-x-auto'>
+                                {episodeimages.stills.map((b, i) => <img className='h-[20vh] md:h-[40vh] rounded my-4 mx-2' key={i} src={`https://image.tmdb.org/t/p/original/${b.file_path}`} alt="" />)}
+                            </div>
+                        </div>
                     </div>
-                </div>
-                </div>
-            ):(
-                <Loader/>
-            )} 
+                ) : (
+                    <Loader />
+                )}
             </div>
         </div>
     )

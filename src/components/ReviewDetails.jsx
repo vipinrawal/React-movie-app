@@ -22,7 +22,6 @@ const EpisodeDetails = () => {
         GetDetail();
     }, [reviewid])
 
-    console.log(reviewdetail)
     return (
         <div onClick={() => navigate(-1)} className="bg-[rgba(0,0,0,.7)] absolute z-[100] top-0 left-0 w-screen h-screen flex items-center justify-center">
             <div className="h-[60%] w-[90%] md:w-[60%]  bg-black rounded-xl">

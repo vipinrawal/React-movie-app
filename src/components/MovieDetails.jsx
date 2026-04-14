@@ -19,7 +19,6 @@ const MovieDetails = () => {
       dispatch(removemovie());
     };
   }, [id]);
-  console.log(info)
 
   return info ? (
     <div className='overflow-hidden overflow-y-auto'>
@@ -58,10 +57,15 @@ const MovieDetails = () => {
         <div className='flex flex-wrap text-sm mx-10 mb-5 text-white'>
           GENRES : {info.detail.genres.map((g,i)=> <p key={i}> <span className='text-[#C1121F]'>|</span> {g.name} </p> )}
         </div>
-
-        <Link to={`${pathname}/trailer`} className='mx-10 hover:bg-[#780000] bg-[#C1121F] text-sm px-3 py-2 rounded text-white'>
+        <div className='flex mx-10 gap-2 w-fit'>
+        <Link to={`${pathname}/trailer`} className='hover:bg-[#780000] bg-[#C1121F] text-sm px-3 py-2 rounded text-white'>
           <i className="ri-play-large-line"></i> Play Trailer
         </Link>
+
+         <Link to={`https://vidvault.ru/movie/${info.detail.id}`} className='hover:bg-[#780000] bg-[#C1121F] text-sm px-3 py-2 rounded text-white'>
+          <i className="ri-download-line"></i> Download Now
+        </Link>
+        </div>
 
       </div>
 
