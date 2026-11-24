@@ -15,16 +15,6 @@ A modern movie and TV-show discovery application built with **React**, powered b
 
 **Try the application:** https://react-movie-app-y3by.onrender.com/
 
-## 📸 Screenshots
-
-### Home page
-
-The preview below is captured from the deployed application. It may take a little time to load if the Render service is waking up.
-
-[![React Movie App — Home page](https://image.thum.io/get/width/1200/crop/900/noanimate/https://react-movie-app-y3by.onrender.com/)](https://react-movie-app-y3by.onrender.com/)
-
-> To add permanent screenshots to this repository, save desktop and mobile captures in `docs/screenshots/` and replace the preview above with repository image paths.
-
 ## ✨ Features
 
 - **Discover movies and TV shows** — browse trending and popular entertainment.
